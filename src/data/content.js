@@ -116,7 +116,7 @@ export const projects = [
     url: "https://crypto-price-tracking-beryl.vercel.app/",
   },
   {
-    name: "Cuotoday",
+    name: "Cuptoday",
     url: "https://cup-today-web.vercel.app/",
   },
   {
