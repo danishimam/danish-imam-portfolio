@@ -50,9 +50,9 @@ export default function About() {
                 {focus.map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="group flex items-center gap-4 rounded-xl px-2 py-2 transition-colors duration-300 hover:bg-white/[0.03]"
+                    className="group flex items-center gap-4 rounded-xl px-2 py-2 transition-colors duration-300 hover:bg-ink/[0.03]"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-white/[0.02] text-accent transition-colors duration-300 group-hover:border-accent/40">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-ink/[0.02] text-accent transition-colors duration-300 group-hover:border-accent/40">
                       <Icon size={16} strokeWidth={1.75} />
                     </span>
                     <span className="text-sm font-medium tracking-tight text-graphite">

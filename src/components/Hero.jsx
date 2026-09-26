@@ -36,13 +36,13 @@ export default function Hero() {
         className="pointer-events-none absolute -top-48 left-1/2 h-[36rem] w-[56rem] max-w-[140vw] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(139,147,255,0.28), rgba(46,224,247,0.08) 60%, transparent)",
+            "radial-gradient(closest-side, rgba(0,87,255,0.10), rgba(0,87,255,0.03) 60%, transparent)",
         }}
       />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 top-64 h-[28rem] w-[28rem] rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(46,224,247,0.16), transparent)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(0,87,255,0.06), transparent)" }}
       />
 
       <div className="shell relative">
@@ -112,7 +112,7 @@ export default function Hero() {
                       target="_blank"
                       rel="noreferrer noopener"
                       aria-label={s.label}
-                      className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white/[0.02] text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-ink"
+                      className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-accent transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent hover:text-paper"
                     >
                       <Icon size={18} strokeWidth={1.75} />
                     </a>
@@ -137,7 +137,7 @@ export default function Hero() {
               <div className="relative">
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-px rounded-[calc(1.25rem+1px)] bg-gradient-to-br from-accent/40 via-transparent to-accent-2/30 opacity-70"
+                  className="absolute -inset-px rounded-[calc(1.25rem+1px)] bg-gradient-to-br from-accent/30 via-transparent to-accent-2/20 opacity-70"
                 />
                 <div className="glass relative rounded-[1.25rem] p-2 shadow-[var(--shadow-float)]">
                   <div className="rounded-2xl bg-paper/50 p-6 md:p-8">
@@ -171,7 +171,7 @@ export default function Hero() {
                       {stats.map((s) => (
                         <div
                           key={s.l}
-                          className="rounded-2xl border border-line bg-white/[0.02] px-4 py-4"
+                          className="rounded-2xl border border-line bg-ink/[0.02] px-4 py-4"
                         >
                           <p className="text-gradient text-3xl font-semibold tracking-tight">
                             {String(s.n).padStart(2, "0")}
@@ -183,13 +183,13 @@ export default function Hero() {
 
                     <a
                       href={`mailto:${profile.email}`}
-                      className="group mt-4 flex items-center justify-between gap-4 rounded-2xl border border-line bg-white/[0.02] px-4 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/5"
+                      className="group mt-4 flex items-center justify-between gap-4 rounded-2xl border border-line bg-ink/[0.02] px-4 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/5"
                     >
                       <span className="truncate text-sm text-graphite">{profile.email}</span>
                       <ArrowUpRight
                         size={16}
                         strokeWidth={1.75}
-                        className="shrink-0 text-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink"
+                        className="shrink-0 text-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
                       />
                     </a>
                   </div>

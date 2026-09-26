@@ -45,7 +45,7 @@ export default function Nav() {
               <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-accent text-paper transition-transform duration-500 group-hover:rotate-[-8deg]">
                 <span className="text-sm font-bold leading-none">{profile.name.charAt(0)}</span>
               </span>
-              <span className="text-sm font-medium tracking-tight">
+              <span className="text-sm font-semibold tracking-tight text-accent">
                 {profile.name}
               </span>
             </a>
@@ -60,14 +60,14 @@ export default function Nav() {
                     className={cn(
                       "relative rounded-full px-3.5 py-2 text-sm transition-colors duration-300",
                       isActive
-                        ? "text-ink"
-                        : "text-muted hover:text-ink"
+                        ? "text-accent"
+                        : "text-accent/70 hover:text-accent"
                     )}
                   >
                     {isActive && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 rounded-full bg-white/[0.06]"
+                        className="absolute inset-0 rounded-full border border-accent/15 bg-accent/[0.07]"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -85,7 +85,7 @@ export default function Nav() {
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label="Open menu"
-                className="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface/70 text-ink transition-colors hover:bg-surface md:hidden"
+                className="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface/70 text-accent transition-colors hover:bg-surface md:hidden"
               >
                 <Menu size={18} strokeWidth={1.75} />
               </button>
@@ -118,7 +118,7 @@ export default function Nav() {
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface text-ink"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface text-accent"
                 >
                   <X size={18} strokeWidth={1.75} />
                 </button>
@@ -137,7 +137,7 @@ export default function Nav() {
                       duration: 0.4,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="hairline flex items-baseline justify-between py-5 text-2xl font-medium tracking-tight"
+                    className="hairline flex items-baseline justify-between py-5 text-2xl font-medium tracking-tight text-accent"
                   >
                     {item.label}
                     <span className="label">{String(i + 1).padStart(2, "0")}</span>

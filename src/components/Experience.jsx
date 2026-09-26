@@ -18,7 +18,7 @@ export default function Experience() {
             <span
               aria-hidden="true"
               className={`absolute -left-10 top-10 hidden h-[23px] w-[23px] place-items-center rounded-full border md:grid ${
-                job.current ? "border-accent/50 bg-paper" : "border-line bg-paper"
+                job.current ? "border-accent/50 bg-surface" : "border-line bg-surface"
               }`}
             >
               <span
@@ -53,7 +53,7 @@ export default function Experience() {
                       </span>
                     </span>
                   )}
-                  <span className="rounded-full border border-line bg-white/[0.02] px-3 py-1 font-mono text-xs text-graphite">
+                  <span className="rounded-full border border-line bg-ink/[0.02] px-3 py-1 font-mono text-xs text-graphite">
                     {job.period}
                   </span>
                 </div>

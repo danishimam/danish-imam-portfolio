@@ -32,15 +32,15 @@ export default function BrowserPreview({ url, name, ratio = 0.625, className }) 
 
   return (
     <div ref={inViewRef} className={cn("select-none", className)}>
-      <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-paper">
+      <div className="overflow-hidden rounded-2xl border border-ink/[0.06] bg-paper">
         {/* Chrome */}
-        <div className="flex items-center gap-3 border-b border-white/[0.06] bg-elevated/90 px-3 py-2.5">
+        <div className="flex items-center gap-3 border-b border-ink/[0.06] bg-elevated/90 px-3 py-2.5">
           <div className="flex shrink-0 gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ink/60" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ink/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-ink/25" />
           </div>
-          <div className="min-w-0 flex-1 rounded-md bg-white/[0.04] px-2.5 py-1">
+          <div className="min-w-0 flex-1 rounded-md bg-ink/[0.04] px-2.5 py-1">
             <span className="block truncate font-mono text-[0.625rem] text-faint">
               {host}
             </span>

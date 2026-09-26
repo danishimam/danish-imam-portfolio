@@ -10,7 +10,7 @@ export default function Education() {
         {education.map((item, i) => (
           <Reveal key={item.school} delay={0.05 * i} className="h-full">
             <div className="card card-hover h-full p-6 sm:p-8">
-              <span className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white/[0.02] text-accent">
+              <span className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-ink/[0.02] text-accent">
                 <GraduationCap size={18} strokeWidth={1.75} />
               </span>
               <p className="mt-6 font-mono text-xs text-faint">{item.period}</p>

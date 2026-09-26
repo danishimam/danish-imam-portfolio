@@ -48,7 +48,7 @@ export default function Contact() {
               className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[40rem] max-w-[120%] -translate-x-1/2 rounded-full blur-3xl"
               style={{
                 background:
-                  "radial-gradient(closest-side, rgba(139,147,255,0.25), rgba(46,224,247,0.06) 60%, transparent)",
+                  "radial-gradient(closest-side, rgba(0,87,255,0.08), rgba(0,87,255,0.02) 60%, transparent)",
               }}
             />
 
@@ -81,7 +81,7 @@ export default function Contact() {
                       className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl border transition-transform duration-500 group-hover:scale-105 ${
                         primary
                           ? "border-transparent bg-gradient-accent text-paper"
-                          : "border-line bg-white/[0.03] text-accent"
+                          : "border-line bg-ink/[0.03] text-accent"
                       }`}
                     >
                       <Icon size={20} strokeWidth={1.75} />
@@ -95,7 +95,7 @@ export default function Contact() {
                     <ArrowUpRight
                       size={18}
                       strokeWidth={1.75}
-                      className="shrink-0 text-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink"
+                      className="shrink-0 text-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
                     />
                   </a>
                 </li>

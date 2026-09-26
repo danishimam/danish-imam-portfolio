@@ -28,7 +28,7 @@ export default function Skills() {
               <div className="card card-hover group h-full p-6 sm:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <span className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-gradient-to-br from-accent/15 to-accent-2/5 text-accent transition-transform duration-500 group-hover:scale-105">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl border border-transparent bg-gradient-accent text-white shadow-[0_6px_16px_-8px_rgb(0_87_255/0.55)] transition-transform duration-500 group-hover:scale-105">
                       <Icon size={20} strokeWidth={1.75} />
                     </span>
                     <h3 className="text-base font-semibold tracking-tight">{group.title}</h3>

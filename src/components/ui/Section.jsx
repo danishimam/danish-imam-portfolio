@@ -14,7 +14,7 @@ export default function Section({ id, label, title, lead, children, className })
         className="pointer-events-none absolute inset-x-0 top-0 h-[32rem]"
         style={{
           background:
-            "radial-gradient(ellipse 45% 45% at 25% 50%, rgba(139,147,255,0.06), transparent)",
+            "radial-gradient(ellipse 45% 45% at 25% 50%, rgba(0,87,255,0.035), transparent)",
         }}
       />
       <div className="shell relative">
