@@ -2,41 +2,45 @@ import Reveal from "./Reveal.jsx";
 import { cn } from "../../lib/utils.js";
 
 /**
- * Every section shares one structure: a mono gutter label on the left,
- * content on the right. The label column is the page's spine.
+ * Every section shares one structure: a pill eyebrow, a title,
+ * an optional lead, then full-width content underneath.
  */
 export default function Section({ id, label, title, lead, children, className }) {
   return (
-    <section id={id} className={cn("scroll-mt-28 py-24 md:py-32", className)}>
-      <div className="shell">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-3">
-            <Reveal>
-              <div className="flex items-center gap-3 md:sticky md:top-32">
-                <span className="h-px w-6 bg-line md:w-4" />
-                <span className="label">{label}</span>
-              </div>
+    <section id={id} className={cn("relative scroll-mt-24 py-20 md:py-28", className)}>
+      {/* Soft ambient glow behind each section header */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[32rem]"
+        style={{
+          background:
+            "radial-gradient(ellipse 45% 45% at 25% 50%, rgba(139,147,255,0.06), transparent)",
+        }}
+      />
+      <div className="shell relative">
+        <div className="max-w-3xl">
+          <Reveal>
+            <span className="eyebrow">
+              <span className="h-1.5 w-1.5 rounded-full bg-gradient-accent" />
+              {label}
+            </span>
+          </Reveal>
+          {title && (
+            <Reveal delay={0.04}>
+              <h2 className="mt-6 text-[2rem] font-semibold leading-[1.1] sm:text-4xl md:text-[2.75rem]">
+                {title}
+              </h2>
             </Reveal>
-          </div>
-
-          <div className="md:col-span-9">
-            {title && (
-              <Reveal>
-                <h2 className="max-w-2xl text-3xl font-medium leading-[1.1] md:text-[2.75rem]">
-                  {title}
-                </h2>
-              </Reveal>
-            )}
-            {lead && (
-              <Reveal delay={0.08}>
-                <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">
-                  {lead}
-                </p>
-              </Reveal>
-            )}
-            <div className={cn(title || lead ? "mt-12 md:mt-16" : "")}>{children}</div>
-          </div>
+          )}
+          {lead && (
+            <Reveal delay={0.08}>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-[1.0625rem]">
+                {lead}
+              </p>
+            </Reveal>
+          )}
         </div>
+        <div className="mt-12 md:mt-16">{children}</div>
       </div>
     </section>
   );

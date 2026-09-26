@@ -1,81 +1,106 @@
-import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle, Phone } from "lucide-react";
 import Reveal from "./ui/Reveal.jsx";
-import { profile } from "../data/content.js";
+import { profile, socials } from "../data/content.js";
+
+const socialIcons = { GitHub: Github, LinkedIn: Linkedin };
 
 export default function Contact() {
-  const whatsappUrl = `https://wa.me/${profile.whatsapp}`;
+  const channels = [
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "Quickest reply",
+      href: `https://wa.me/${profile.whatsapp}`,
+      external: true,
+      primary: true,
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: profile.email,
+      href: `mailto:${profile.email}`,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: profile.phone,
+      href: `tel:${profile.phone.replace(/[^+\d]/g, "")}`,
+    },
+    ...socials
+      .filter((s) => s.href)
+      .map((s) => ({
+        icon: socialIcons[s.label] || ArrowUpRight,
+        label: s.label,
+        value: s.href.replace(/^https?:\/\/(www\.)?/, ""),
+        href: s.href,
+        external: true,
+      })),
+  ];
 
   return (
-    <section id="contact" className="scroll-mt-28 pb-24 pt-16 md:pb-32 md:pt-24">
+    <section id="contact" className="scroll-mt-24 py-20 md:py-28">
       <div className="shell">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-surface px-6 py-16 text-center md:px-16 md:py-24">
+          <div className="card relative overflow-hidden px-4 py-16 sm:px-10 md:px-16 md:py-24">
+            <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-0" />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full blur-3xl"
+              className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[40rem] max-w-[120%] -translate-x-1/2 rounded-full blur-3xl"
               style={{
                 background:
-                  "radial-gradient(circle at center, rgba(47,128,217,0.10), transparent 65%)",
-              }}
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-32 -right-20 h-96 w-96 rounded-full blur-3xl"
-              style={{
-                background:
-                  "radial-gradient(circle at center, rgba(120,146,175,0.16), transparent 68%)",
+                  "radial-gradient(closest-side, rgba(139,147,255,0.25), rgba(46,224,247,0.06) 60%, transparent)",
               }}
             />
 
-            <div className="relative">
-              <span className="label">Contact</span>
+            <div className="relative text-center">
+              <span className="eyebrow">
+                <span className="h-1.5 w-1.5 rounded-full bg-gradient-accent" />
+                Contact
+              </span>
 
-              <h2 className="mx-auto mt-6 max-w-2xl text-[2.25rem] font-medium leading-[1.08] tracking-[-0.035em] md:text-[3.25rem]">
+              <h2 className="mx-auto mt-6 max-w-2xl text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.035em] md:text-[3.5rem]">
                 Have something to build?{" "}
-                <span className="accent-italic text-[1.06em] tracking-normal text-muted">
-                  Let's talk.
-                </span>
+                <span className="text-gradient">Let's talk.</span>
               </h2>
 
               <p className="mx-auto mt-6 max-w-md text-[1.0625rem] leading-relaxed text-muted">
                 A message on WhatsApp is the quickest way to reach me. Email
                 works just as well.
               </p>
-
-              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="btn btn-primary group w-full sm:w-auto"
-                >
-                  <MessageCircle size={17} strokeWidth={1.75} />
-                  Message on WhatsApp
-                  <ArrowUpRight
-                    size={15}
-                    strokeWidth={1.75}
-                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </a>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="btn btn-ghost w-full sm:w-auto"
-                >
-                  <Mail size={16} strokeWidth={1.75} />
-                  {profile.email}
-                </a>
-              </div>
-
-              <div className="mx-auto mt-12 flex max-w-sm flex-col items-center gap-1">
-                <span className="label">Phone</span>
-                <a
-                  href={`tel:${profile.phone.replace(/[^+\d]/g, "")}`}
-                  className="font-mono text-sm text-graphite transition-colors hover:text-ink"
-                >
-                  {profile.phone}
-                </a>
-              </div>
             </div>
+
+            <ul className="relative mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+              {channels.map(({ icon: Icon, label, value, href, external, primary }) => (
+                <li key={label} className="min-w-0">
+                  <a
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+                    className="card card-hover group flex items-center gap-4 rounded-2xl p-4 text-left sm:p-6"
+                  >
+                    <span
+                      className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl border transition-transform duration-500 group-hover:scale-105 ${
+                        primary
+                          ? "border-transparent bg-gradient-accent text-paper"
+                          : "border-line bg-white/[0.03] text-accent"
+                      }`}
+                    >
+                      <Icon size={20} strokeWidth={1.75} />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-semibold tracking-tight text-ink">
+                        {label}
+                      </span>
+                      <span className="mt-0.5 block truncate text-sm text-muted">{value}</span>
+                    </span>
+                    <ArrowUpRight
+                      size={18}
+                      strokeWidth={1.75}
+                      className="shrink-0 text-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </div>

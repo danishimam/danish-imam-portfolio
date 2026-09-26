@@ -34,7 +34,7 @@ export default function Nav() {
             className={cn(
               "flex items-center justify-between rounded-full transition-all duration-500",
               scrolled
-                ? "glass px-3 py-2 shadow-[0_1px_2px_rgb(13_35_60/0.04),0_16px_40px_-20px_rgb(13_35_60/0.2)] md:px-4"
+                ? "glass px-3 py-2 shadow-[var(--shadow-float)] md:px-4"
                 : "border border-transparent px-1 py-2"
             )}
           >
@@ -42,8 +42,8 @@ export default function Nav() {
               href="#top"
               className="group flex items-center gap-2.5 rounded-full pl-2 pr-3"
             >
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-ink text-paper">
-                <span className="accent-italic text-lg leading-none">D</span>
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-accent text-paper transition-transform duration-500 group-hover:rotate-[-8deg]">
+                <span className="text-sm font-bold leading-none">{profile.name.charAt(0)}</span>
               </span>
               <span className="text-sm font-medium tracking-tight">
                 {profile.name}
@@ -67,7 +67,7 @@ export default function Nav() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 rounded-full bg-line-soft"
+                        className="absolute inset-0 rounded-full bg-white/[0.06]"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}

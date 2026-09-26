@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#0e1c2b" />
-  <text x="50%" y="50%" dy="0.35em" text-anchor="middle" fill="#eef2f7"
-        font-family="Georgia, serif" font-style="italic" font-size="30">D</text>
+  <rect width="64" height="64" rx="14" fill="#000000" />
+  <text x="50%" y="50%" dy="0.35em" text-anchor="middle" fill="#ffffff"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="700"
+        font-size="30" letter-spacing="-1">DI</text>
 </svg>

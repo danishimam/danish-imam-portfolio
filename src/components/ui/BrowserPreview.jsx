@@ -32,15 +32,15 @@ export default function BrowserPreview({ url, name, ratio = 0.625, className }) 
 
   return (
     <div ref={inViewRef} className={cn("select-none", className)}>
-      <div className="overflow-hidden rounded-2xl border border-line bg-paper">
+      <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-paper">
         {/* Chrome */}
-        <div className="flex items-center gap-3 border-b border-line-soft bg-surface/80 px-3 py-2.5">
+        <div className="flex items-center gap-3 border-b border-white/[0.06] bg-elevated/90 px-3 py-2.5">
           <div className="flex shrink-0 gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-line" />
-            <span className="h-2.5 w-2.5 rounded-full bg-line" />
-            <span className="h-2.5 w-2.5 rounded-full bg-line" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/70" />
           </div>
-          <div className="min-w-0 flex-1 rounded-md bg-paper px-2.5 py-1">
+          <div className="min-w-0 flex-1 rounded-md bg-white/[0.04] px-2.5 py-1">
             <span className="block truncate font-mono text-[0.625rem] text-faint">
               {host}
             </span>
@@ -54,8 +54,8 @@ export default function BrowserPreview({ url, name, ratio = 0.625, className }) 
           style={{ paddingBottom: `${ratio * 100}%` }}
         >
           {/* Placeholder / fallback for sites that block embedding */}
-          <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-surface via-paper to-line-soft">
-            <span className="accent-italic text-5xl text-line">{name.charAt(0)}</span>
+          <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-elevated via-surface to-paper">
+            <span className="text-gradient text-5xl font-semibold opacity-40">{name.charAt(0)}</span>
           </div>
 
           {inView && scale > 0 && (
@@ -82,7 +82,7 @@ export default function BrowserPreview({ url, name, ratio = 0.625, className }) 
           )}
 
           {/* Keeps the preview reading as an image rather than a live app */}
-          <div className="absolute inset-0 bg-ink/[0.015]" />
+          <div className="absolute inset-0 bg-paper/[0.04]" />
         </div>
       </div>
     </div>

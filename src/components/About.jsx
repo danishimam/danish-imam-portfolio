@@ -1,12 +1,20 @@
+import { BarChart3, Database, GraduationCap, MapPin, Plug, Workflow, Briefcase, Code2 } from "lucide-react";
 import Section from "./ui/Section.jsx";
 import Reveal from "./ui/Reveal.jsx";
-import { profile } from "../data/content.js";
+import { education, profile } from "../data/content.js";
 
 const focus = [
-  "Modern user interfaces",
-  "RESTful API integration",
-  "ERP workflow optimisation",
-  "Clean, maintainable code",
+  { icon: Workflow, label: "ERP workflow automation" },
+  { icon: Plug, label: "REST API integration & testing" },
+  { icon: Database, label: "SQL data validation & reconciliation" },
+  { icon: BarChart3, label: "Power BI reporting" },
+  { icon: Code2, label: "Responsive React interfaces" },
+];
+
+const glance = [
+  { icon: Briefcase, k: "Role", v: `${profile.headline}, ${profile.company}` },
+  { icon: MapPin, k: "Location", v: profile.location },
+  { icon: GraduationCap, k: "Education", v: education[0]?.qualification },
 ];
 
 export default function About() {
@@ -16,45 +24,63 @@ export default function About() {
       label="About"
       title={
         <>
-          Frontend engineer, ERP developer, and a stickler for{" "}
-          <span className="accent-italic text-[1.05em] tracking-normal">
-            clean code
-          </span>
-          .
+          Software engineer turning business processes into{" "}
+          <span className="text-gradient">reliable systems</span>.
         </>
       }
     >
-      <div className="grid gap-12 lg:grid-cols-5 lg:gap-10">
-        <div className="lg:col-span-3">
-          <Reveal>
-            <p className="text-[1.0625rem] leading-relaxed text-graphite">
+      <div className="grid gap-4 lg:grid-cols-12">
+        <Reveal className="lg:col-span-7">
+          <div className="card h-full p-6 sm:p-8 md:p-10">
+            <span className="label">Summary</span>
+            <p className="mt-6 text-lg leading-relaxed text-graphite md:text-xl md:leading-relaxed">
               {profile.summary}
             </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="mt-6 text-[1.0625rem] leading-relaxed text-muted">
+            <p className="mt-6 text-base leading-relaxed text-muted md:text-[1.0625rem]">
               {profile.summaryTwo}
             </p>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
 
-        <div className="lg:col-span-2">
-          <Reveal delay={0.12}>
-            <div className="rounded-3xl border border-line bg-surface p-6 md:p-7">
+        <div className="flex flex-col gap-4 lg:col-span-5">
+          <Reveal delay={0.08}>
+            <div className="card p-6 sm:p-8">
               <span className="label">Focus areas</span>
-              <ul className="mt-5">
-                {focus.map((item, i) => (
+              <ul className="mt-5 space-y-1">
+                {focus.map(({ icon: Icon, label }) => (
                   <li
-                    key={item}
-                    className={`flex items-center gap-3 py-3 text-sm font-medium tracking-tight ${
-                      i !== 0 ? "hairline" : ""
-                    }`}
+                    key={label}
+                    className="group flex items-center gap-4 rounded-xl px-2 py-2 transition-colors duration-300 hover:bg-white/[0.03]"
                   >
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-ink" />
-                    {item}
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-white/[0.02] text-accent transition-colors duration-300 group-hover:border-accent/40">
+                      <Icon size={16} strokeWidth={1.75} />
+                    </span>
+                    <span className="text-sm font-medium tracking-tight text-graphite">
+                      {label}
+                    </span>
                   </li>
                 ))}
               </ul>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <div className="card p-6 sm:p-8">
+              <span className="label">At a glance</span>
+              <dl className="mt-4">
+                {glance.map(({ icon: Icon, k, v }, i) => (
+                  <div
+                    key={k}
+                    className={`flex items-start gap-4 py-4 ${i !== 0 ? "hairline" : ""}`}
+                  >
+                    <Icon size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-faint" />
+                    <div className="min-w-0">
+                      <dt className="text-xs text-faint">{k}</dt>
+                      <dd className="mt-1 text-sm font-medium text-ink">{v}</dd>
+                    </div>
+                  </div>
+                ))}
+              </dl>
             </div>
           </Reveal>
         </div>
